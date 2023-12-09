@@ -1,0 +1,61 @@
+/*  General */
+:root {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: #ddedea;
+  color: #444444;
+}
+
+
+/* #e1f0ed */
+
+a {
+  color: #DCF0EE;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #DCF0EE;
+  text-decoration: none;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Nunito", sans-serif;
+}
+
+/* Main*/
+#main {
+  margin-top: 60px;
+  padding: 20px 30px;
+  transition: all 0.3s;
+}
+
+@media (max-width: 1199px) {
+  #main {
+    padding: 20px;
+  }
+}
+
+main{
+  background-image: url(../img/11.jpg);
+  background-repeat: no-repeat;
+  background-color: #ddedea;
+}
+
+.card {
+  margin-bottom: 30px;
+  border: none;
+  border-radius: 5px;
+}
+
+
+
