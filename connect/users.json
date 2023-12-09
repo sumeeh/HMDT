@@ -1,0 +1,50 @@
+[
+    {
+        "user_id": "1",
+        "user_name": "mona",
+        "frist_name": "mona",
+        "last_name": "alzahrani",
+        "email": "monaa554@gmail.com",
+        "password": "12345",
+        "phone_number": "550110336",
+        "gender": "famale",
+        "group_id": "1",
+        "user_code": "1545"
+    },
+    {
+        "user_id": "2",
+        "user_name": "nada",
+        "frist_name": "nada",
+        "last_name": "alzahrani",
+        "email": "nada@gmail.com",
+        "password": "Nada12345",
+        "phone_number": "55011989",
+        "gender": "famale",
+        "group_id": "2",
+        "user_code": "1234"
+    },
+    {
+        "user_id": "3",
+        "user_name": "waad",
+        "frist_name": "waad",
+        "last_name": "alghamdi",
+        "email": "waad@gmail.com",
+        "password": "Waad12345",
+        "phone_number": "55077665",
+        "gender": "famale",
+        "group_id": "3",
+        "user_code": "9876"
+    },
+    {
+        "user_id": "4",
+        "user_name": "ail",
+        "frist_name": "ail",
+        "last_name": "alghamdi",
+        "email": "ail@gmail.com",
+        "password": "00000",
+        "phone_number": "57764359",
+        "gender": "male",
+        "group_id": "3",
+        "user_code": "7655"
+    }
+]

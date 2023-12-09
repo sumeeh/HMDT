@@ -1,0 +1,28 @@
+[
+    {
+        "doctor": "",
+        "pid": "1",
+        "fname": "Noha",
+        "lname": "alzhrani",
+        "appdate": "0000-00-00",
+        "apptime": "00:00:00",
+        "disease": "",
+        "allergy": "",
+        "medicne_name": "",
+        "prescription": "",
+        "symptoms": ""
+    },
+    {
+        "doctor": "",
+        "pid": "2",
+        "fname": "Aliaa",
+        "lname": "",
+        "appdate": "0000-00-00",
+        "apptime": "00:00:00",
+        "disease": "",
+        "allergy": "",
+        "medicne_name": "",
+        "prescription": "",
+        "symptoms": ""
+    }
+]

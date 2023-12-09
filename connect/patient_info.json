@@ -1,0 +1,92 @@
+[
+    {
+        "pid": "1",
+        "fname": "noha",
+        "lname": "alghamdi",
+        "gender": "famale",
+        "email": "ram@gmail.com",
+        "contact": "0587654321",
+        "password": "ram123",
+        "cpassword": "ram123"
+    },
+    {
+        "pid": "2",
+        "fname": "Alia",
+        "lname": "alshahri",
+        "gender": "Female",
+        "email": "alia@gmail.com",
+        "contact": "0576897689",
+        "password": "alia123",
+        "cpassword": "alia123"
+    },
+    {
+        "pid": "3",
+        "fname": "maha",
+        "lname": "alzahrani",
+        "gender": "famale",
+        "email": "shahrukh@gmail.com",
+        "contact": "0576898463",
+        "password": "shahrukh123",
+        "cpassword": "shahrukh123"
+    },
+    {
+        "pid": "4",
+        "fname": "Saed",
+        "lname": "alshahri",
+        "gender": "Male",
+        "email": "kishansmart0@gmail.com",
+        "contact": "0538489464",
+        "password": "kishan123",
+        "cpassword": "kishan123"
+    },
+    {
+        "pid": "7",
+        "fname": "Nancy",
+        "lname": "Deborah",
+        "gender": "Female",
+        "email": "nancy@gmail.com",
+        "contact": "0528972454",
+        "password": "nancy123",
+        "cpassword": "nancy123"
+    },
+    {
+        "pid": "8",
+        "fname": "Kenny",
+        "lname": "Sebastian",
+        "gender": "Male",
+        "email": "kenny@gmail.com",
+        "contact": "0580979868",
+        "password": "kenny123",
+        "cpassword": "kenny123"
+    },
+    {
+        "pid": "9",
+        "fname": "William",
+        "lname": "Blake",
+        "gender": "Male",
+        "email": "william@gmail.com",
+        "contact": "0586836191",
+        "password": "william123",
+        "cpassword": "william123"
+    },
+    {
+        "pid": "10",
+        "fname": "Peter",
+        "lname": "Norvig",
+        "gender": "Male",
+        "email": "peter@gmail.com",
+        "contact": "0596093628",
+        "password": "peter123",
+        "cpassword": "peter123"
+    },
+    {
+        "pid": "11",
+        "fname": "Shraddha",
+        "lname": "Kapoor",
+        "gender": "Female",
+        "email": "shraddha@gmail.com",
+        "contact": "0597689462",
+        "password": "shraddha123",
+        "cpassword": "shraddha123"
+    }
+]
