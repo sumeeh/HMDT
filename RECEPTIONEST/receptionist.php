@@ -18,7 +18,7 @@ $id = $_SESSION['user_id'];
     <title>Patients Files | HMDT </title>
     <meta content="" name="description">
     <meta content="" name="keywords">
-    <link rel="stylesheet" href="resption.css">
+    <link rel="stylesheet" href="reception.css">
     
     <!-- Favicons -->
     <link href="../img/favicon_io/favicon.ico" rel="imges/x-icon">
