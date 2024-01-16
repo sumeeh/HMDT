@@ -33,6 +33,7 @@ $id = $_SESSION['user_id'];
     <link href="https://fonts.gstatic.com" rel="preconnect">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
+
 </head>
 <body style="background-color:#DCF0EE">
     <!-- logo, logout btn, back btn -->
@@ -100,31 +101,53 @@ $id = $_SESSION['user_id'];
                     <div class="row">
                         <div style="font-weight: bold; text-align:center" class="col-lg-2 col-sm-2">Patient's ID</div>
                         <div style="font-weight: bold; text-align:center" class="col-lg-2 col-sm-2">Patient's Name</div>
-                        <div style="font-weight: bold; text-align:center" class="col-lg-2 col-sm-2">Meds</div>
+                        <div style="font-weight: bold; text-align:center" class="col-lg-1 col-sm-2">Meds</div>
                         <div style="font-weight: bold; text-align:center" class="col-lg-1 col-sm-1">Time</div>
+                        <div style="font-weight: bold; text-align:center" class="col-lg-2 col-sm-1">Date</div>
                         <div style="font-weight: bold; text-align:center" class="col-lg-2 col-sm-2">Status</div>
                         <div style="font-weight: bold; text-align:center" class="col-lg-1 col-sm-2">Details</div>
-                        <div style="font-weight: bold; " class="col-lg-2 col-sm-2">Nurse Notes</div>
-                    </div>
-                </div>  
-
+                        <div style="font-weight: bold; " class="col-lg-1 col-sm-2">Nurse Notes</div>
+                        </div>
+                        </div>
                 <?php
                 
-            // (SELECT column_name(s) FROM table_name ORDER BY follow_up_record DESC)
+            if (!isset($_POST['send'])) {
+                include('../db/db.inc.php');
+                $sql = $pdo->prepare("SELECT follow_up_record.*, patients.patient_name, patients.patient_code FROM follow_up_record INNER JOIN patients ON patients.patient_id = follow_up_record.patient_id ORDER BY follow_up_record.follow_up_record_id DESC");
+                $sql->execute();
+                date_default_timezone_set('Asia/Riyadh');
+                $rows = $sql->fetchAll();
+            
+                    foreach ($rows as $info) {
+                        $status = $info['status'];
+                        $today = date('Y-m-d');
+                        $db_date = $info['Date'];
+                        $time_now = date("H:i");
+                        $meding_time = date("H:i", strtotime($info['meds_time']));
+                        $timeNow_Plus10 = date("H:i", strtotime(' + 10 minutes', strtotime($meding_time)));
+                    
+                        // Check if current time is later than the set time and update the status to "Late"
+                        if (strtotime($time_now) > strtotime($timeNow_Plus10) && $today == $db_date && $status == 0) {
+                            $timeNow_Plus1h = date("H:i", strtotime('+1 hour', strtotime($meding_time)));
+                            if (strtotime($time_now) > strtotime($timeNow_Plus1h)) {
+                                $status = 2; // Update the status to "Late"
+                                include('../db/db.inc.php');
+                                $stmt = $pdo->prepare("UPDATE follow_up_record SET status = ? WHERE follow_up_record_id = ?");
+                                $stmt->execute(array($status, $info['follow_up_record_id']));
+                            }
+                        }
+                        
+                    
+                    ?>
 
-                    if(!isset($_POST['send']))  {
-                        include('../db/db.inc.php');  
-                        $sql = $pdo->prepare("SELECT follow_up_record.* , patients.patient_name , patients.patient_code FROM follow_up_record INNER JOIN patients ON patients.patient_id = follow_up_record.patient_id ORDER BY follow_up_record.follow_up_record_id DESC");      
-                        $sql->execute();
-                        $rows = $sql->fetchAll();
-                        foreach($rows as $info){
-                            ?>
-                            <div class="col-lg-12" style="border-radius: 10px;background-color: #FFF;border: 1px solid #CCC;padding: 10px;margin-bottom: 5px">
+
+            <div class="col-lg-12" style="border-radius: 10px;background-color: #FFF;border: 1px solid #CCC;padding: 10px;margin-bottom: 5px">
                     <div class="row">
                         <div style="font-weight: bold; text-align:center" class="col-lg-2 col-sm-2"><?php echo $info['patient_code']; ?></div>
-                        <div style="font-weight: bold; text-align:center" class="col-lg-2 col-sm-2"><?php echo $info['patient_name']; ?></div>
+                        <div style="font-weight: bold; text-align:center" class="col-lg-1 col-sm-2"><?php echo $info['patient_name']; ?></div>
                         <div style="font-weight: bold; text-align:center" class="col-lg-2 col-sm-2"><?php echo $info['meds']; ?></div>
                         <div style="font-weight: bold; text-align:center" class="col-lg-1 col-sm-2"><?php echo $info['meds_time']; ?></div>
+                        <div style="font-weight: bold; text-align:center" class="col-lg-2 col-sm-2"><?php echo $info['Date']; ?></div>
                         
                         <?php if($info['status'] == 1){ ?>
                             <div style="font-weight: bold;padding: 5px;border-radius: 5px;background-color: #CAEAE5;color: #329287;text-align: center" class="col-lg-2 col-sm-2">
@@ -142,9 +165,10 @@ $id = $_SESSION['user_id'];
                         <div style="font-weight: bold;font-size: 25px;color: #329287; text-align:center" class="col-lg-1 col-sm-1"><a title="view Meds Info" style="color: #329287;font-size: 28px;font-weight: bold" href="patient_file.php?patient_id=<?php echo $info['patient_id']; ?>"><i class="bi bi-list"></i></a></div>
                         <div style="font-weight: bold;color: #329287; text-align:center" class="col-lg-1 col-sm-2"><a style="color: #329287;font-weight: bold;font-size:25px" href="nurse_notes.php?patient_id=<?php echo $info['patient_id']; ?>&nurse_id=<?php echo $info['nurse_id']; ?>"><i class="bi bi-file-text"></i></a></div>
                     </div>
-                </div>  
-                    
-                <?php }}else{
+                </div>             
+                <?php } ?> 
+
+                <?php }else{
                     include('../db/db.inc.php');
 
                     $search = $_POST['search'];
@@ -161,18 +185,37 @@ $id = $_SESSION['user_id'];
                     $sql->execute();
                     
                     // Fetch the results
+                    date_default_timezone_set('Asia/Riyadh');
                     $rows = $sql->fetchAll();
-    
-                    foreach($rows as $info)
-                    {
+                
+                        foreach ($rows as $info) {
+                            $status = $info['status'];
+                            $today = date('Y-m-d');
+                            $db_date = $info['Date'];
+                            $time_now = date("H:i");
+                            $meding_time = date("H:i", strtotime($info['meds_time']));
+                            $timeNow_Plus10 = date("H:i", strtotime(' + 10 minutes', strtotime($meding_time)));
+                        
+                            // Check if current time is later than the set time and update the status to "Late"
+                            if (strtotime($time_now) > strtotime($timeNow_Plus10) && $today == $db_date && $status == 0) {
+                                $timeNow_Plus1h = date("H:i", strtotime('+1 hour', strtotime($meding_time)));
+                                if (strtotime($time_now) > strtotime($timeNow_Plus1h)) {
+                                    $status = 2; // Update the status to "Late"
+                                    include('../db/db.inc.php');
+                                    $stmt = $pdo->prepare("UPDATE follow_up_record SET status = ? WHERE follow_up_record_id = ?");
+                                    $stmt->execute(array($status, $info['follow_up_record_id']));
+                                }
+                            }
     
                         ?> 
                         <div class="col-lg-12" style="border-radius: 10px;background-color: #FFF;border: 1px solid #CCC;padding: 10px;margin-bottom: 5px">
                     <div class="row">
                     <div style="font-weight: bold; text-align:center" class="col-lg-2 col-sm-2"><?php echo $info['patient_code']; ?></div>
-                        <div style="font-weight: bold; text-align:center" class="col-lg-2 col-sm-2"><?php echo $info['patient_name']; ?></div>
+                        <div style="font-weight: bold; text-align:center" class="col-lg-1 col-sm-2"><?php echo $info['patient_name']; ?></div>
                         <div style="font-weight: bold; text-align:center" class="col-lg-2 col-sm-2"><?php echo $info['meds']; ?></div>
                         <div style="font-weight: bold; text-align:center" class="col-lg-1 col-sm-2"><?php echo $info['meds_time']; ?></div>
+                        <div style="font-weight: bold; text-align:center" class="col-lg-2 col-sm-2"><?php echo $info['Date']; ?></div>
+
                         
                         <?php if($info['status'] == 1){ ?>
                             <div style="font-weight: bold;padding: 5px;border-radius: 5px;background-color: #CAEAE5;color: #329287;text-align: center" class="col-lg-2 col-sm-2">
@@ -202,8 +245,4 @@ $id = $_SESSION['user_id'];
         </section>
 
     </main>
-
-                
-                        
-                        
-                    
+    
