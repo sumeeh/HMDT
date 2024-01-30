@@ -118,24 +118,24 @@ $id = $_SESSION['user_id'];
                 date_default_timezone_set('Asia/Riyadh');
                 $rows = $sql->fetchAll();
             
-                    foreach ($rows as $info) {
-                        $status = $info['status'];
-                        $today = date('Y-m-d');
-                        $db_date = $info['Date'];
-                        $time_now = date("H:i");
-                        $meding_time = date("H:i", strtotime($info['meds_time']));
-                        $timeNow_Plus10 = date("H:i", strtotime(' + 10 minutes', strtotime($meding_time)));
-                    
-                        // Check if current time is later than the set time and update the status to "Late"
-                        if (strtotime($time_now) > strtotime($timeNow_Plus10) && $today == $db_date && $status == 0) {
-                            $timeNow_Plus1h = date("H:i", strtotime('+1 hour', strtotime($meding_time)));
-                            if (strtotime($time_now) > strtotime($timeNow_Plus1h)) {
-                                $status = 2; // Update the status to "Late"
-                                include('../db/db.inc.php');
-                                $stmt = $pdo->prepare("UPDATE follow_up_record SET status = ? WHERE follow_up_record_id = ?");
-                                $stmt->execute(array($status, $info['follow_up_record_id']));
-                            }
+                foreach ($rows as $info) {
+                    $status = $info['status'];
+                    $today = date('Y-m-d');
+                    $db_date = $info['Date'];
+                    $time_now = date("H:i");
+                    $meding_time = date("H:i", strtotime($info['meds_time']));
+                    $timeNow_Plus10 = date("H:i", strtotime('+10 minutes', strtotime($meding_time)));
+                
+                    // Check if current time is later than the set time and update the status to "Late"
+                    if ($today == $db_date && $status == 0) {
+                        if (strtotime($time_now) > strtotime($timeNow_Plus10)) {
+                            $status = 2; // Update the status to "Late"
+                            include('../db/db.inc.php');
+                            $stmt = $pdo->prepare("UPDATE follow_up_record SET status = ? WHERE follow_up_record_id = ?");
+                            $stmt->execute(array($status, $info['follow_up_record_id']));
                         }
+                    }
+                
                         
                     
                     ?>

@@ -207,19 +207,22 @@ $id = $_SESSION['user_id'];
                             $sql = $pdo->prepare("SELECT follow_up_record.*, nurses.user_id FROM follow_up_record INNER JOIN nurses ON nurses.nurse_id = follow_up_record.nurse_id WHERE follow_up_record.patient_id='$patient_id' AND nurses.user_id='$id'");
                             $sql->execute();
                             $rows = $sql->fetchAll();
-                            
                             foreach ($rows as $pat) {
                                 $today = date('Y-m-d');
                                 $db_date = $pat['Date'];
                                 $time_now = date("H:i");
                                 $meding_time = date("H:i", strtotime($pat['meds_time']));
-                                $timeNow_Plus10 = date("H:i", strtotime(' + 10 minutes', strtotime($meding_time)));
+                                $timeNow_Plus10 = date("H:i", strtotime('+10 minutes', strtotime($meding_time)));
                             
-                                if (strtotime($timeNow_Plus10) < strtotime($meding_time) && $today == $db_date) {
-                                    include('../db/db.inc.php');
-                                    $stmt = $pdo->prepare("UPDATE follow_up_record SET status = ?, nurse_id = ? WHERE patient_id = ?");
-                                    $stmt->execute(array(2, $pat['nurse_id'], $patient_id));
+                                if ($today == $db_date) {
+                                    if (strtotime($time_now) > strtotime($timeNow_Plus10)) {
+                                        $status = 2; // Update the status to "Late"
+                                        include('../db/db.inc.php');
+                                        $stmt = $pdo->prepare("UPDATE follow_up_record SET status = ? WHERE follow_up_record_id = ?");
+                                        $stmt->execute(array($status, $pat['follow_up_record_id']));
+                                    }
                                 }
+                            
                             
                                 $user_id = $pat['user_id'];
                             
