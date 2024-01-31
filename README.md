@@ -14,11 +14,15 @@ ________________________________________________________________________________
 -Leave notes for the nurse regarding any specific instructions or observations.
 
 <h5>Nurse:</h5>
-- Log in to the system securely.
+- Log in to the system securely. 
+
 - Administer medications to the patients.
+  
 - Leave notes for the doctor regarding any concerns or updates on the patient's condition.
+  
 <h5>Reception:</h5>
 - Log in to the system securely.
+
 - Print barcodes as required for patient identification and tracking purposes.
 __________________________________________________________________________________________________________________________
 <h3>Prerequisites</h3>
@@ -26,7 +30,9 @@ ________________________________________________________________________________
 To set up and run our Hospital Management System, you will need the following:
 
 - XAMPP: Install XAMPP, which provides a local development environment for running the system.
+  
 - Any text editor: You can use any text editor of your choice, such as Visual Studio Code, for making modifications or customizations.
+  
 - Web browser: We recommend using Google Chrome or any other modern web browser for accessing the system.
 
 __________________________________________________________________________________________________________________________
@@ -34,10 +40,15 @@ ________________________________________________________________________________
 <h3>Languages and Technologies</h3>
 
 - PHP
+  
 - phpMyAdmin
+  
 - HTML/CSS
+  
 - Bootstrap
+  
 - XAMPP
+  
 - MySQL
 __________________________________________________________________________________________________________________________
 <h3>Interfaces</h3>
