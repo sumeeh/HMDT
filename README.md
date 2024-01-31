@@ -14,7 +14,8 @@ ________________________________________________________________________________
 -Leave notes for the nurse regarding any specific instructions or observations.
 
 <h5>Nurse:</h5>
--Log in to the system securely. 
+-Log in to the system securely.
+
 
 -Administer medications to the patients.
   
@@ -22,6 +23,7 @@ ________________________________________________________________________________
   
 <h5>Reception:</h5>
 -Log in to the system securely.
+
 
 -Print barcodes as required for patient identification and tracking purposes.
 __________________________________________________________________________________________________________________________
