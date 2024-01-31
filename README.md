@@ -1,7 +1,6 @@
 <h1>Hospital Management System</h1>
 Welcome to our Hospital Management System! Our system is designed to address the challenges faced by doctors and nurses in delivering medication care. It streamlines interactions, manages patient records, and reduces medication errors with an innovative barcode feature.
-_____________________________________________________________________________________
-
+__________________________________________________________________________________________________________________________
 <h3>Features</h3>
 
 <h5>Doctor:</h5>
@@ -16,7 +15,7 @@ ________________________________________________________________________________
 <h5>Reception:</h5>
 - Log in to the system securely.
 - Print barcodes as required for patient identification and tracking purposes.
-___________________________________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
 <h3>Prerequisites</h3>
 
 To set up and run our Hospital Management System, you will need the following:
@@ -25,7 +24,7 @@ To set up and run our Hospital Management System, you will need the following:
 - Any text editor: You can use any text editor of your choice, such as Visual Studio Code, for making modifications or customizations.
 - Web browser: We recommend using Google Chrome or any other modern web browser for accessing the system.
 
- ___________________________________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
 
 <h3>Languages and Technologies</h3>
 
@@ -35,15 +34,14 @@ To set up and run our Hospital Management System, you will need the following:
 - Bootstrap
 - XAMPP
 - MySQL
-___________________________________________________________________________________________________________________________________________________
-
+__________________________________________________________________________________________________________________________
 <h3>Interfaces</h3>
 
 <h4>Login page</h4> 
 
 ![image](https://github.com/sumeeh/HMDT/assets/123176070/eef516ce-0b66-482f-9d62-d88217f9051d)
 
-___________________________________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
 
 <h4>Receptionist Pages</h4>
 
@@ -56,7 +54,7 @@ ________________________________________________________________________________
 ![image](https://github.com/sumeeh/HMDT/assets/123176070/78ce0073-cf57-4d3e-86aa-003066595bdb)
 
 
-___________________________________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
 <h4>Doctor Pages</h4>
 
 
@@ -72,9 +70,7 @@ ________________________________________________________________________________
 
 ![image](https://github.com/sumeeh/HMDT/assets/123176070/aeae819f-30fa-47c4-a7d2-695bbea2b4bd)
 
-___________________________________________________________________________________________________________________________________________________
-
-
+__________________________________________________________________________________________________________________________
 <h4>Nurse Pages</h4>
 
 <h5>Patients file </h5>
