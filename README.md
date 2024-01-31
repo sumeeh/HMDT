@@ -26,7 +26,7 @@ To set up and run our Hospital Management System, you will need the following:
 - Any text editor: You can use any text editor of your choice, such as Visual Studio Code, for making modifications or customizations.
 - Web browser: We recommend using Google Chrome or any other modern web browser for accessing the system.
 
-##Languages and Technologies
+Languages and Technologies
 ________________________________________________________________________________________________________________________________________________________________________
 
 - PHP
@@ -36,7 +36,7 @@ ________________________________________________________________________________
 - XAMPP
 - MySQL
 
-##Interfaces
+Interfaces
 ________________________________________________________________________________________________________________________________________________________________________
 Login page 
 ________________________________________________________________________________________________________________________________________________________________________
