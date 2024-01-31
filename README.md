@@ -6,8 +6,11 @@ ________________________________________________________________________________
 <h5>Doctor:</h5>
 
 -Log in to the system securely.
+
 -Check the patient's condition and verify if they have received their medications.
+
 -Update the patient's records with the diagnosis, allergies, and prescribed medications.
+
 -Leave notes for the nurse regarding any specific instructions or observations.
 
 <h5>Nurse:</h5>
