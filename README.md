@@ -4,10 +4,12 @@ ________________________________________________________________________________
 <h3>Features</h3>
 
 <h5>Doctor:</h5>
+<list>
 - Log in to the system securely.
 - Check the patient's condition and verify if they have received their medications.
 - Update the patient's records with the diagnosis, allergies, and prescribed medications.
-- Leave notes for the nurse regarding any specific instructions or observations.
+- Leave notes for the nurse regarding any specific instructions or observations.</list>
+
 <h5>Nurse:</h5>
 - Log in to the system securely.
 - Administer medications to the patients.
