@@ -1,6 +1,6 @@
 <h1>Hospital Management System</h1>
 Welcome to our Hospital Management System! Our system is designed to address the challenges faced by doctors and nurses in delivering medication care. It streamlines interactions, manages patient records, and reduces medication errors with an innovative barcode feature.
-___________________________________________________________________________________________________________________________________________________
+_____________________________________________________________________________________
 
 <h3>Features</h3>
 
